@@ -1,0 +1,51 @@
+# ETL Pipeline for IT Salary Data
+
+## Introduction
+This Python script is an ETL (Extract, Transform, Load) pipeline for processing IT salary data. It extracts data from a CSV file, transforms it by cleaning and enhancing the data, and then loads it into a database for further analysis. The project also includes data visualisation using Matplotlib.
+
+## Dependencies
+- pandas (for data manipulation)
+- chardet (for automatic encoding detection)
+- sqlalchemy (for database operations)
+- matplotlib (for data visualization)
+
+## Functions
+
+### `transform_iso_code(code)`
+This function maps ISO 3166 country codes to actual country names.
+
+### `detect_encoding(file_path)`
+Detects the encoding of a file using chardet.
+
+### `apply_transformations(df)`
+Applies various transformations to the DataFrame, such as replacing codes with descriptive names and enhancing data.
+
+### `load_and_display_csv(csv_file_path, n=4)`
+Loads a CSV file, detects its encoding, cleans the data, displays the first `n` rows, and saves the cleaned data to a new CSV file.
+
+### `insert_dataframe_into_db(df, table_name, engine)`
+Inserts the DataFrame into a specified database table using SQLAlchemy.
+
+### `fetch_data_from_db(engine, table_name)`
+Fetches data from the database using SQLAlchemy.
+
+### Data Visualisation Functions
+- `create_company_size_country_location_plot(df)`: Creates a bar plot showing company size distribution by country.
+- `create_country_salary_plot(df)`: Creates a bar plot showing average salary by country.
+- `create_experience_salary_plot(df)`: Creates a stacked bar plot showing average salary by country and experience level.
+- `create_company_size_experience_plot(df)`: Creates a stacked bar plot showing average salary by company size and experience level.
+
+## Usage
+1. Specify the path to your CSV file (`csv_file_path`) in the `main` function.
+2. Run the script to execute the ETL pipeline.
+3. The script will perform data extraction, transformation, loading into a database, and data visualisation.
+
+## Configuration
+- You can configure the database connection by modifying the `db_path` variable in the `main` function.
+- Replace `'your_table_name'` with the desired table name where data should be inserted.
+
+## Note
+- Ensure that the required dependencies are installed.
+- This script is a template and can be customised to suit specific data sources and transformations.
+
+Feel free to adapt and extend this ETL pipeline for your specific IT salary data analysis needs.
